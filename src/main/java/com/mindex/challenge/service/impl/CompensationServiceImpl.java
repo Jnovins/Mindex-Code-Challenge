@@ -32,10 +32,11 @@ public class CompensationServiceImpl implements CompensationService {
     public Compensation read(String id) {
         LOG.debug("Reading compensation with id [{}]", id);
 
+        // Get the desired employee that we want the compensation of
         Employee targetEmployee = employeeRepository.findByEmployeeId(id);
         Compensation compensation = compensationRepository.findByEmployee(targetEmployee);
 
-        if (compensation == null) {
+        if (compensation == null) { // throw if non-existent employee is provided
             throw new RuntimeException("Invalid employeeId: " + id);
         }
 

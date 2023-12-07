@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Compensation {
     private Employee employee;
-    private float salary;
+    private int salary;
     private Date effectiveDate;
 
     public Compensation() {
@@ -18,11 +18,11 @@ public class Compensation {
         this.employee = employee;
     }
 
-    public float getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(float salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 
