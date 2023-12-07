@@ -77,6 +77,16 @@ public class EmployeeServiceImplTest {
         assertEmployeeEquivalence(readEmployee, updatedEmployee);
     }
 
+    @Test
+    public void testReportingStructure(){
+        // Test off of DB JSON. Normally test values should be used, but we are guaranteed to have these persistent entries in this case
+        assertEquals(employeeService.createReportingStructure("16a596ae-edd3-4847-99fe-c4518e82c86f").getNumberOfReports(), 4);
+        assertEquals(employeeService.createReportingStructure("03aa1462-ffa9-4978-901b-7c001562cf6f").getNumberOfReports(), 2);
+        assertEquals(employeeService.createReportingStructure("b7839309-3348-463b-a7e3-5de1c168beb3").getNumberOfReports(), 0);
+        assertEquals(employeeService.createReportingStructure("62c1084e-6e34-4630-93fd-9153afb65309").getNumberOfReports(), 0);
+        assertEquals(employeeService.createReportingStructure("c0c2293d-16bd-4603-8e08-638a9d18b22c").getNumberOfReports(), 0);
+    }
+
     private static void assertEmployeeEquivalence(Employee expected, Employee actual) {
         assertEquals(expected.getFirstName(), actual.getFirstName());
         assertEquals(expected.getLastName(), actual.getLastName());
